@@ -1,0 +1,13 @@
+import express from 'express';
+import { register, login, isAuth, logout } from '../controllers/userControllers.js';
+import authUser from '../middlewares/authUser.js';
+
+const userRouter = express.Router();
+
+// User routes
+userRouter.post('/register', register);
+userRouter.post('/login', login);
+userRouter.get('/is-auth', authUser, isAuth);
+userRouter.get('/logout', logout);
+
+export default userRouter;
